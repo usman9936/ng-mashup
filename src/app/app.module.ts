@@ -5,11 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
