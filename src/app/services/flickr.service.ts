@@ -10,24 +10,23 @@ export class FlickrService {
 
   constructor(private http: HttpClient) { }
 
-  search(args:Object) {
-    let query = this.buildQueryString("flickr.photos.search", args);
+  search(args: Object) {
+    const query = this.buildQueryString('flickr.photos.search', args);
 
     return this.http.get(query);
   }
 
-  buildQueryString(method, args:Object) {
-    let URL  = "https://www.flickr.com/services/rest/?method="+method+"&api_key="+this.APIKey+"&format=json&nojsoncallback=?";
-    //let URL  = "https://www.flickr.com/services/rest/?method="+method+"&api_key="+this.APIKey+"&format=json&jsoncallback=?";
-    for (let property in args) {
-      URL += "&"+property+"="+args[property];
+  buildQueryString(method, args: Object) {
+    let URL  = 'https://www.flickr.com/services/rest/?method=' + method + '&api_key=' + this.APIKey + '&format=json&nojsoncallback=?';
+    for (const property in args) {
+      URL += '&' + property + '=' + args[property];
     }
     return URL;
   }
 
-  getLocation(id:string) {
-    let object = {photo_id: id};
-    let query  = this.buildQueryString("flickr.photos.geo.getLocation", object);
+  getLocation(id: string) {
+    const object = {photo_id: id};
+    const query  = this.buildQueryString('flickr.photos.geo.getLocation', object);
     return this.http.get(query);
   }
 

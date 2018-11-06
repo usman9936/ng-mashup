@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
   }
 
   initFlickr() {
-    const args: Object = {text: 'växjö', per_page: 100, has_geo: true};
+    const args: Object = {lat: 56.8770413, lon: 14.8092744, radius: 4, per_page: 10000, has_geo: true};
 
     this.flickrService.search(args)
       .subscribe((response) => {
