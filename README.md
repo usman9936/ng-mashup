@@ -16,10 +16,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
 ## PHP Files
-For two components (career and compare), PHP files are necessary. Those PHP files need to be accessible, that means you need to host them seperatly. You find the PHP files in the folder `/src/php`. Currently they are hosted under `http://celtest1.lnu.se/mashup/php/` and this url is included in the code. If you want to host your own php files (e.g. for local development or to make changes at the php files), you need to change the url in the following files:
-```
-/src/app/compare/compare.service.ts
+For a component (career), a PHP file is necessary. This PHP file needs to be accessible, that means you need to host it seperatly. You find the PHP file in the folder `/src/php`. Currently it is also hosted under `https://celtest1.lnu.se/mashup/php/` and this url is included in the code. If you want to host your own php files (e.g. for local development or to make changes at the php files), you need to change the url in the following file:
+`
 /src/app/career/career.service.ts
-```
+`
 
 
