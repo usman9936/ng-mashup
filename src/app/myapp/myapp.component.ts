@@ -22,7 +22,7 @@ public query_video: string;
     //this.onSearch('Vaxjo sweden');
   }
   player: YT.Player;
-  private id: string = 'LUT6jJbH_HY';
+  public id: string = 'LUT6jJbH_HY';
 
   savePlayer(player) {
     this.player = player;

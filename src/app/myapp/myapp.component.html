@@ -2,7 +2,7 @@
   <div id="page-middle-wrapper">
     <app-map [lat]="lat" [long]="long"></app-map>
     <div class="autocomplete-container">
-      <input class="mapInput" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+      <input class="mapInput" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
     </div>
   </div>
 
@@ -47,8 +47,8 @@
 
         <div #target style="margin-top: 20px;">
       
-          <h3 *ngIf="noResult" style="margin-bottom: 15px;">No video found...</h3>
-          <p *ngIf="noResult" > Try a different keyword and see if you have better luck.</p>
+          <!-- <h3 *ngIf="noResult" style="margin-bottom: 15px;">No video found...</h3>
+          <p *ngIf="noResult" > Try a different keyword and see if you have better luck.</p> -->
       
         </div>
 
