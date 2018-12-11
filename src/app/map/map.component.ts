@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FlickrService} from '../services/flickr.service';
 
 @Component({
@@ -9,8 +9,11 @@ import {FlickrService} from '../services/flickr.service';
 export class MapComponent implements OnInit {
 
   DEFAULT_MAP_ZOOM = 12;
-  DEFAULT_MAP_LAT = 56.8770413;
-  DEFAULT_MAP_LNG = 14.8092744;
+  // DEFAULT_MAP_LAT = 56.8770413;
+  // DEFAULT_MAP_LNG = 14.8092744;
+
+  @Input() lat: number = 56.8770413;
+  @Input() long: number = 14.8092744;
 
   markers: Array<any> = [];
 

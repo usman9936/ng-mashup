@@ -1,0 +1,29 @@
+<h1>
+  {{ title }}
+</h1>
+
+<div class="error" style="color: red; font-weight: bold;" *ngIf="error">Error: {{ this.error }}</div>
+
+<br>
+
+<div class="converter">
+
+  <span class="convert-txt">Convert</span>
+
+  <input id="from-amount" type="number" [(ngModel)]="fromAmount" (ngModelChange)='calculate(false)'>
+
+  <select id="fromCurrency" [(ngModel)]="fromCurrency" (ngModelChange)="convert(false, false)">
+      <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
+  </select>
+
+  <br><br>
+
+  <span class="to">into</span>
+
+  <input id="to-amount" type="number" [(ngModel)]="toAmount" (ngModelChange)="calculate(true)">
+
+  <select id="toCurrency" [(ngModel)]="toCurrency" (ngModelChange)="calculate(true)">
+      <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
+  </select>
+
+</div><!--/div.converter -->

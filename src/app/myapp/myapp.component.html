@@ -1,0 +1,65 @@
+<div id="page-wrapper">
+  <div id="page-middle-wrapper">
+    <app-map [lat]="lat" [long]="long"></app-map>
+    <div class="autocomplete-container">
+      <input class="mapInput" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+    </div>
+  </div>
+
+  <div id="page-right-wrapper">
+    <div id="calendar">
+      <button [routerLink]="'/calendar'">View Calendar</button>
+    </div>
+    <div id="page-left-weather-wrapper">
+      <h2>What is the forecast?</h2>
+      <p>Here is the local weather forecast for the next couple of days.</p>
+      <hr />
+      <app-weather></app-weather>
+    </div>
+    <app-career></app-career>
+    
+  </div>
+
+  <div id="page-left-wrapper">
+    <div id="page-left-disqus-wrapper">
+      <h2>Do you have something you want to discuss?</h2>
+      <p>This discussion thread is open for discussion.</p>
+      <hr />
+      <div id="disqus_thread"></div>
+    </div>
+    <div style="background-color: rgba(255, 255, 255, 0.85098); border: 1px solid rgb(219, 219, 219); padding: 25px; margin-bottom: 25px;">
+        <h2>Looking for Youtube videos?</h2>
+        <p>We help you to search videos from Youtube. Enter a keyword and click search button... </p>
+        <hr>
+        <input [(ngModel)]="query_video" placeholder="Search videos from Youtube" style="padding: 10px 5px; width: 100%;">
+        <button (click)="onSearch()">Search</button>
+            <ul>
+              <li style="cursor:pointer;" *ngFor=" let video of videos" (click)="setVideoID(video.id.videoId)">{{video.snippet.title}}</li>
+            </ul>
+            <div *ngIf="id">
+              <youtube-player
+              [height]=200
+              [width]=300
+              [videoId]="id"
+              (ready)="savePlayer($event)"
+              (change)="onStateChange($event)"></youtube-player>
+            </div>
+
+        <div #target style="margin-top: 20px;">
+      
+          <h3 *ngIf="noResult" style="margin-bottom: 15px;">No video found...</h3>
+          <p *ngIf="noResult" > Try a different keyword and see if you have better luck.</p>
+      
+        </div>
+
+      </div>
+
+    <!-- <div id="page-left-disqus-wrapper">
+      <app-currency></app-currency>
+    </div> -->
+    
+  </div>
+  
+  
+</div>
+
